@@ -1,16 +1,16 @@
 {
-	"name": "cordova-plugin-httpServer",
+	"name": "httpServer",
 	"version": "1.0.0",
 	"description": "Apache Cordova http server Plugin",
 	"cordova": {
-		"id": "cordova-plugin-httpServer",
+		"id": "httpServer",
 		"platforms": [
 			"android"
 		]
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/huge818/cordova-plugin-httpServer.git"
+		"url": "https://github.com/huge818/httpServer"
 	},
 	"keywords": [
 		"http",
@@ -27,7 +27,7 @@
 	"author": "huge818",
 	"license": "Apache 2.0",
 	"bugs": {
-		"url": "https://github.com/huge818/cordova-plugin-httpServer/issues"
+		"url": "https://github.com/huge818/httpServer/issues"
 	},
-	"homepage": "https://github.com/huge818/cordova-plugin-httpServer"
+	"homepage": "https://github.com/huge818/httpServer"
 }
