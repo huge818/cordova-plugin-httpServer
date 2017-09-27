@@ -1,2 +1,42 @@
-<?xml version='1.0' encoding='utf-8'?>
-<plugin id="httpServer" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android"><name>httpServer</name><js-module name="httpServer" src="www/httpServer.js"><clobbers target="cordova.plugins.httpServer" /></js-module><platform name="android"><config-file parent="/*" target="res/xml/config.xml"><feature name="httpServer"><param name="android-package" value="httpServer.httpServer" /></feature></config-file><config-file parent="/*" target="AndroidManifest.xml"></config-file><source-file src="src/android/httpServer.java" target-dir="src/httpServer/httpServer" /></platform></plugin>
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="httpServer" version="1.0.0">
+  <name>httpServer</name>
+  <js-module name="httpServer" src="www/httpServer.js">
+	<clobbers target="cordova.plugins.httpServer"/>
+  </js-module>
+  <platform name="android">
+	<config-file parent="/*" target="res/xml/config.xml">
+	  <feature name="httpServer">
+		<param name="android-package" value="httpServer.httpServer"/>
+	  </feature>
+	</config-file>
+	<config-file parent="/*" target="AndroidManifest.xml"/>
+	<source-file src="src/android/httpServer.java" target-dir="src/httpServer/httpServer"/>
+	<source-file src="src/org/nanohttpd/util/IFactory.java" target-dir="src/org/nanohttpd/util/IFactory"/>
+	<source-file src="src/org/nanohttpd/util/IFactoryThrowing.java" target-dir="src/org/nanohttpd/util/IFactoryThrowing"/>
+	<source-file src="src/org/nanohttpd/util/IHandler.java" target-dir="src/org/nanohttpd/util/IHandler"/>
+	<source-file src="src/org/nanohttpd/util/ServerRunner.java" target-dir="src/org/nanohttpd/util/ServerRunner"/>
+	<source-file src="src/org/nanohttpd/protocols/http/ClientHandler.java" target-dir="src/org/nanohttpd/protocols/http/ClientHandler"/>
+	<source-file src="src/org/nanohttpd/protocols/http/HTTPSession.java" target-dir="src/org/nanohttpd/protocols/http/HTTPSession"/>
+	<source-file src="src/org/nanohttpd/protocols/http/NanoHTTPD.java" target-dir="src/org/nanohttpd/protocols/http/NanoHTTPD"/>
+	<source-file src="src/org/nanohttpd/protocols/http/IHTTPSession.java" target-dir="src/org/nanohttpd/protocols/http/IHTTPSession"/>
+	<source-file src="src/org/nanohttpd/protocols/http/ServerRunnable.java" target-dir="src/org/nanohttpd/protocols/http/ServerRunnable"/>
+	<source-file src="src/org/nanohttpd/protocols/http/request/Method.java" target-dir="src/org/nanohttpd/protocols/http/request/Method"/>
+	<source-file src="src/org/nanohttpd/protocols/http/content/Cookie.java" target-dir="src/org/nanohttpd/protocols/http/content/Cookie"/>
+	<source-file src="src/org/nanohttpd/protocols/http/sockets/DefaultServerSocketFactory.java" target-dir="src/org/nanohttpd/protocols/http/sockets/DefaultServerSocketFactory"/>
+	<source-file src="src/org/nanohttpd/protocols/http/content/ContentType.java" target-dir="src/org/nanohttpd/protocols/http/content/ContentType"/>
+	<source-file src="src/org/nanohttpd/protocols/http/content/CookieHandler.java" target-dir="src/org/nanohttpd/protocols/http/content/CookieHandler"/>
+	<source-file src="src/org/nanohttpd/protocols/http/sockets/SecureServerSocketFactory.java" target-dir="src/org/nanohttpd/protocols/http/sockets/SecureServerSocketFactory"/>
+	<source-file src="src/org/nanohttpd/protocols/http/response/ChunkedOutputStream.java" target-dir="src/org/nanohttpd/protocols/http/response/ChunkedOutputStream"/>
+	<source-file src="src/org/nanohttpd/protocols/http/response/IStatus.java" target-dir="src/org/nanohttpd/protocols/http/response/IStatus"/>
+	<source-file src="src/org/nanohttpd/protocols/http/response/Response.java" target-dir="src/org/nanohttpd/protocols/http/response/Response"/>
+	<source-file src="src/org/nanohttpd/protocols/http/threading/DefaultAsyncRunner.java" target-dir="src/org/nanohttpd/protocols/http/threading/DefaultAsyncRunner"/>
+	<source-file src="src/org/nanohttpd/protocols/http/response/Status.java" target-dir="src/org/nanohttpd/protocols/http/response/Status"/>
+	<source-file src="src/org/nanohttpd/protocols/http/tempfiles/DefaultTempFile.java" target-dir="src/org/nanohttpd/protocols/http/tempfiles/DefaultTempFile"/>
+	<source-file src="src/org/nanohttpd/protocols/http/threading/IAsyncRunner.java" target-dir="src/org/nanohttpd/protocols/http/threading/IAsyncRunner"/>
+	<source-file src="src/org/nanohttpd/protocols/http/tempfiles/DefaultTempFileManager.java" target-dir="src/org/nanohttpd/protocols/http/tempfiles/DefaultTempFileManager"/>
+	<source-file src="src/org/nanohttpd/protocols/http/tempfiles/DefaultTempFileManagerFactory.java" target-dir="src/org/nanohttpd/protocols/http/tempfiles/DefaultTempFileManagerFactory"/>
+	<source-file src="src/org/nanohttpd/protocols/http/tempfiles/ITempFile.java" target-dir="src/org/nanohttpd/protocols/http/tempfiles/ITempFile"/>
+	<source-file src="src/org/nanohttpd/protocols/http/tempfiles/ITempFileManager.java" target-dir="src/org/nanohttpd/protocols/http/tempfiles/ITempFileManager"/>
+  </platform>
+</plugin>
