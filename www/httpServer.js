@@ -1,5 +1,9 @@
-var exec = require('cordova/exec');
+	var exec = require('cordova/exec');
 
-exports.coolMethod = function(arg0, success, error) {
-    exec(success, error, "httpServer", "coolMethod", [arg0]);
-};
+	exports.startServer = function(arg0, arg1, success, error) {
+	    exec(success, error, "httpServer", "startServer", [arg0,arg1]);
+	};
+
+	exports.response = function(id, data, success, error) {
+	    exec(success, error, "httpServer", "response", [id,data]);
+	};
