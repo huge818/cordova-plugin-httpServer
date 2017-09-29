@@ -16,6 +16,8 @@ import org.nanohttpd.protocols.http.NanoHTTPD;
 import org.nanohttpd.protocols.http.request.Method;
 import org.nanohttpd.protocols.http.response.Response;
 import org.nanohttpd.util.ServerRunner;
+import org.nanohttpd.protocols.http.content.ContentType;
+import org.nanohttpd.protocols.http.response.Status;
 
 import android.util.Log;
 import java.util.UUID;
@@ -116,6 +118,16 @@ public class httpServer extends CordovaPlugin {
 			wwwroot=webroot;
 		}
 
+		public String getExtensionName(String filename) {  
+		    if ((filename != null) && (filename.length() > 0)) {  
+		        int dot = filename.lastIndexOf('.');  
+		        if ((dot >-1) && (dot < (filename.length() - 1))) {  
+		            return filename.substring(dot + 1);  
+		        }  
+		    }  
+		    return filename;  
+		}  
+
 		@Override
 		public Response serve(IHTTPSession session) {
 			Method method = session.getMethod();
@@ -175,8 +187,19 @@ public class httpServer extends CordovaPlugin {
 				}
 			}
 			httpHashMap.remove(uuid);
-			return Response.newFixedLengthResponse(result);
+			String ext= getExtensionName(file_name);
+			if(ext.equals("html")){
+				return Response.newFixedLengthResponse(Status.OK, "text/html",result);
+			}
+			else if(ext.equals("js")){
+				return Response.newFixedLengthResponse(Status.OK, "application/javascript" ,result);
+			}
+			else if(ext.equals("css")){
+				return Response.newFixedLengthResponse(Status.OK, "text/css", result);
+			}
+			else{
+				return Response.newFixedLengthResponse(Status.OK, "text/plain" ,result);
+			}
 		}
 	}
-
 }
