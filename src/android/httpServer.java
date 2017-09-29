@@ -40,6 +40,14 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;  
 import android.content.Context;
+
+import android.net.ConnectivityManager;  
+import android.net.NetworkInfo;  
+import android.net.wifi.WifiConfiguration;  
+import android.net.wifi.WifiInfo;  
+import android.net.wifi.WifiManager;  
+import java.net.InetSocketAddress;
+
 /**
  * This class echoes a string called from JavaScript.
  */
@@ -79,6 +87,10 @@ public class httpServer extends CordovaPlugin {
 			return;
 		}
 	}
+
+	//WifiManager wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+    //DhcpInfo info=wifiManager.getDhcpInfo();
+    //System.out.println(info.serverAddress);
 
 	private void stopServer(CallbackContext callbackContext) {
 		try {
@@ -149,15 +161,16 @@ public class httpServer extends CordovaPlugin {
 				file_name = "index.html";
 			}
 
-			String body = session.getQueryParameterString();
+			String query = session.getQueryParameterString();
 			JSONObject requestData = new JSONObject();
 			try {
 				
 				requestData.put("uuid", uuid);
 				requestData.put("uri", uri);
-				requestData.put("body", body);
+				requestData.put("query", query);
 				requestData.put("params", params.toString());
 				requestData.put("headers", headers.toString());
+				requestData.put("postData", files.get("postData"));
 				if(Method.GET.equals(method)){
 					requestData.put("method", "get");
 				}
@@ -198,7 +211,7 @@ public class httpServer extends CordovaPlugin {
 				return Response.newFixedLengthResponse(Status.OK, "text/css", result);
 			}
 			else{
-				return Response.newFixedLengthResponse(Status.OK, "text/plain" ,result);
+				return Response.newFixedLengthResponse(Status.OK, "application/json", result);
 			}
 		}
 	}
