@@ -202,16 +202,16 @@ public class httpServer extends CordovaPlugin {
 			httpHashMap.remove(uuid);
 			String ext= getExtensionName(file_name);
 			if(ext.equals("html")){
-				return Response.newFixedLengthResponse(Status.OK, "text/html",result);
+				return Response.newFixedLengthResponse(Status.OK, "text/html;charset=UTF-8",result);
 			}
 			else if(ext.equals("js")){
-				return Response.newFixedLengthResponse(Status.OK, "application/javascript" ,result);
+				return Response.newFixedLengthResponse(Status.OK, "application/javascript;charset=UTF-8" ,result);
 			}
 			else if(ext.equals("css")){
-				return Response.newFixedLengthResponse(Status.OK, "text/css", result);
+				return Response.newFixedLengthResponse(Status.OK, "text/css;charset=UTF-8", result);
 			}
 			else{
-				return Response.newFixedLengthResponse(Status.OK, "application/json", result);
+				return Response.newFixedLengthResponse(Status.OK, "application/json;charset=UTF-8", result);
 			}
 		}
 	}
